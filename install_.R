@@ -1,7 +1,6 @@
 install.packages("ggplot2")
 install.packages("dplyr")
 install.packages("data.table")
-install.packages("xergm", repos='https://cran.uni-muenster.de', dependencies=TRUE)
 install.packages("igraph")
 install.packages(
 install.packages("scales")
@@ -10,3 +9,4 @@ require(devtools)
 install_version("statnet.common", version = "4.1.2")
 install_version("btergm", version = "1.9.3")
 install_version("dplyr", version = "0.8.0", repos='https://cran.uni-muenster.de', dependencies=TRUE)
+install.packages("xergm", repos='https://cran.uni-muenster.de', dependencies=TRUE)
