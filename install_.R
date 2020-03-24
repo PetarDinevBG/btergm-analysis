@@ -15,5 +15,5 @@ install_version("nloptr", version = "1.2.1")
 install_version("tnam", version = "1.6.5")
 install_version("btergm", version = "1.9.4")
 install_version("GERGM", version = "0.13.0")
-install_version("xergm", version = "1.8.3")
+install.packages("xergm")
 
