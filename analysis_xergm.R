@@ -3,6 +3,7 @@ library(dplyr)
 library(Matrix)
 library(data.table)
 
+
 create_round_edges <- function(data, current_round){
   edge_mat <- matrix(0,nrow=20,ncol=20)
   for(j in 1:nrow(data)){
@@ -53,7 +54,7 @@ get_xergm_data <- function(data1, data2){
 interact_data <- read.csv("cleaned_data/interactions.csv", header=T)
 wealth_data <- read.csv("cleaned_data/finwealth_from_interactions.csv", header=T)
 
-
+all_networks <- NULL
 
 for (t in unique(interact_data$treatment)) {
   group_networks <- list()
@@ -61,6 +62,9 @@ for (t in unique(interact_data$treatment)) {
     filtered_data1 <- interact_data[(interact_data$treatment==t) & (interact_data$group_id==g), ]
     filtered_data2 <- wealth_data[(wealth_data$treatment==t) & (wealth_data$group_id==g), ]
     xergm_network <- get_xergm_data(filtered_data1, filtered_data2)
+    endow <- get_endowment(filtered_data1)
     group_networks[[paste(t, '_', g, sep="")]] <- xergm_network
   }
+  all_networks[[paste(t, sep="")]] <- group_networks
 }
+
