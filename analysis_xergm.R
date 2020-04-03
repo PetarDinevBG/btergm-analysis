@@ -63,9 +63,9 @@ get_xergm_data <- function(data1, data2){
     network[[i]] <- network(round_edges)
     network[[i]] <- add_endowment(network[[i]], data2)
     network[[i]] <- add_wealth(network[[i]], data2, i)
-    odeg <- degree(network[[i]], cmode = "outdegree")
+    odegsqrt <- degree(network[[i]], cmode = "outdegree")
     network[[i]] <- set.vertex.attribute(network[[i]],
-                                         "odeg", odeg)
+                                         "odegsqrt", odegsqrt)
   }
   return(network)
 }
@@ -85,4 +85,12 @@ for (t in unique(interact_data$treatment)) {
   }
   all_networks[[paste(t, sep="")]] <- group_networks
 }
+
+# Test model
+#endow_6 <- all_networks[[1]][[1]]
+#test_model <- btergm(endow_6 ~ edges + mutual + ttriple +
+#                       + nodeocov("odegsqrt") +
+#                       nodeicov("endowment") + nodeocov("endowment") + nodematch("endowment")
+#                     + nodeicov("wealth") + nodeocov("wealth") + nodematch("wealth"), R = 100)
+#print(coef(test_model))
 
