@@ -5,3 +5,5 @@ install.packages("data.table", repos='http://cran.us.r-project.org', dependencie
 install.packages("RSIENA", repos='http://cran.us.r-project.org', dependencies=TRUE)
 install.packages("Matrix", repos='http://cran.us.r-project.org', dependencies=TRUE)
 install.packages("metafor")
+install.packages("DT")
+install.packages("formattable")
