@@ -7,3 +7,6 @@ install.packages("Matrix", repos='http://cran.us.r-project.org', dependencies=TR
 install.packages("metafor")
 install.packages("DT")
 install.packages("formattable")
+install.packages("plyr")
+install.packages("jtools")
+install.packages("dotwhisker")
